@@ -43,13 +43,13 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.startGameButton = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.disppearingSpeedTextBox = new System.Windows.Forms.TextBox();
+            this.disappearingSpeedTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.gamePanel = new System.Windows.Forms.Panel();
-            this.gameProgressBar = new ProgrammingAssignment2A.VerticalProgressBar();
             this.gameTimer = new System.Windows.Forms.Timer(this.components);
             this.panelsTimer = new System.Windows.Forms.Timer(this.components);
+            this.gameProgressBar = new ProgrammingAssignment2A.VerticalProgressBar();
             this.panel1.SuspendLayout();
             this.gamePanel.SuspendLayout();
             this.SuspendLayout();
@@ -71,7 +71,7 @@
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.startGameButton);
             this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.disppearingSpeedTextBox);
+            this.panel1.Controls.Add(this.disappearingSpeedTextBox);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(2, 3);
             this.panel1.Name = "panel1";
@@ -151,6 +151,7 @@
             this.scoreMarkLabel.Size = new System.Drawing.Size(50, 29);
             this.scoreMarkLabel.TabIndex = 6;
             this.scoreMarkLabel.Text = "0%";
+            this.scoreMarkLabel.Click += new System.EventHandler(this.scoreMarkLabel_Click);
             // 
             // label3
             // 
@@ -197,13 +198,13 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "ms";
             // 
-            // disppearingSpeedTextBox
+            // disappearingSpeedTextBox
             // 
-            this.disppearingSpeedTextBox.Location = new System.Drawing.Point(112, 18);
-            this.disppearingSpeedTextBox.Name = "disppearingSpeedTextBox";
-            this.disppearingSpeedTextBox.Size = new System.Drawing.Size(33, 20);
-            this.disppearingSpeedTextBox.TabIndex = 1;
-            this.disppearingSpeedTextBox.Text = "100";
+            this.disappearingSpeedTextBox.Location = new System.Drawing.Point(112, 18);
+            this.disappearingSpeedTextBox.Name = "disappearingSpeedTextBox";
+            this.disappearingSpeedTextBox.Size = new System.Drawing.Size(33, 20);
+            this.disappearingSpeedTextBox.TabIndex = 1;
+            this.disappearingSpeedTextBox.Text = "100";
             // 
             // label1
             // 
@@ -226,10 +227,22 @@
             // 
             this.gamePanel.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.gamePanel.Controls.Add(this.gameProgressBar);
-            this.gamePanel.Location = new System.Drawing.Point(2, 103);
+            this.gamePanel.Location = new System.Drawing.Point(2, 109);
             this.gamePanel.Name = "gamePanel";
-            this.gamePanel.Size = new System.Drawing.Size(599, 294);
+            this.gamePanel.Size = new System.Drawing.Size(599, 282);
             this.gamePanel.TabIndex = 3;
+            this.gamePanel.Click += new System.EventHandler(this.gamePanel_Click);
+            // 
+            // gameTimer
+            // 
+            this.gameTimer.Enabled = true;
+            this.gameTimer.Interval = 1000;
+            // 
+            // panelsTimer
+            // 
+            this.panelsTimer.Enabled = true;
+            this.panelsTimer.Interval = 200;
+            this.panelsTimer.Tick += new System.EventHandler(this.panelsTimer_Tick);
             // 
             // gameProgressBar
             // 
@@ -240,16 +253,6 @@
             this.gameProgressBar.Name = "gameProgressBar";
             this.gameProgressBar.Size = new System.Drawing.Size(21, 294);
             this.gameProgressBar.TabIndex = 0;
-            // 
-            // gameTimer
-            // 
-            this.gameTimer.Enabled = true;
-            this.gameTimer.Interval = 1000;
-            // 
-            // panelsTimer
-            // 
-            this.panelsTimer.Enabled = true;
-            this.panelsTimer.Interval = 30;
             // 
             // GameForm
             // 
@@ -286,7 +289,7 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button startGameButton;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox disppearingSpeedTextBox;
+        private System.Windows.Forms.TextBox disappearingSpeedTextBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel gamePanel;
